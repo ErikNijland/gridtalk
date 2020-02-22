@@ -4,17 +4,28 @@
     <ul>
       <li v-for="article in articles" v-bind:key="article.id">
         {{ article.date | Date("time") }}
-        <a href="" v-html="article.title.rendered"></a>
+
+        <router-link
+          :to="'/' + article.slug"
+          v-html="article.title.rendered"
+        ></router-link>
       </li>
     </ul>
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
+import { Component, Vue } from "vue-property-decorator";
 import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
+import { getArticles } from "@/api/api";
 @Component
 export default class Sidebar extends Vue {
-  @Prop() articles!: WordpressPostSummary[];
+  articles: WordpressPostSummary[] = [];
+
+  created() {
+    getArticles().then(articles => {
+      this.articles = articles;
+    });
+  }
 }
 </script>

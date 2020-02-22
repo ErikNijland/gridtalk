@@ -2,8 +2,12 @@ import { DateFormat } from "@/types/date-format";
 
 export const DateFilter = (value: string, format: DateFormat): string => {
   const date = new Date(value);
+
   const hours = date.getHours();
   const minutes = date.getMinutes();
+
+  const hoursWithLeadingZero = String(hours).padStart(2, "0");
+  const minutesWithLeadingZero = String(minutes).padStart(2, "0");
 
   switch (format) {
     case "date":
@@ -13,6 +17,6 @@ export const DateFilter = (value: string, format: DateFormat): string => {
       return "plas";
 
     case "time":
-      return `${hours}:${minutes}`;
+      return `${hoursWithLeadingZero}:${minutesWithLeadingZero}`;
   }
 };

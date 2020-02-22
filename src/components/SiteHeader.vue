@@ -1,10 +1,11 @@
 <template>
   <header>
-    <a href="">Logo</a>
+    <router-link to="/" title="Ga naar de homepage">Gridtalk Logo</router-link>
 
     <nav>
       <ul>
         <li><a href="">F1 kalender</a></li>
+        <li><router-link to="/archief">Nieuwsarchief</router-link></li>
       </ul>
     </nav>
   </header>

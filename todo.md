@@ -5,3 +5,4 @@
 - Article page
 - Archive page
 - Pagination archive
+- Make API content wrapper component with loading, success and error state
