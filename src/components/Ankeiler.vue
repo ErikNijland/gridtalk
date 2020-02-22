@@ -1,7 +1,10 @@
 <template>
   <div>
     <h2>
-      <a v-html="article.title.rendered"></a>
+      <router-link
+        :to="article.slug"
+        v-html="article.title.rendered"
+      ></router-link>
     </h2>
     <p>{{ article.date | Date("time") }}</p>
     <img :src="article.x_featured_media_medium" alt="" />

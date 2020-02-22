@@ -4,7 +4,6 @@ export const apiConfig = {
     article: [
       "content.rendered",
       "date",
-      "excerpt.rendered",
       "modified",
       "title.rendered",
       "x_author",
