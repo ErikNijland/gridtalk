@@ -1,7 +1,7 @@
 import VueRouter from "vue-router";
-import FrontPage from "@/components/FrontPage.vue";
-import Archive from "@/components/Archive.vue";
-import Article from "@/components/Article.vue";
+import FrontPage from "@/components/pages/FrontPage.vue";
+import Archive from "@/components/pages/Archive.vue";
+import Article from "@/components/pages/Article.vue";
 
 export const router = new VueRouter({
   routes: [
