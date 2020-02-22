@@ -1,8 +1,9 @@
 import { DateFormat } from "@/types/date-format";
 
-export const Date = (value: Date, format: DateFormat): string => {
-  const hours = value.getHours();
-  const minutes = value.getMinutes();
+export const DateFilter = (value: string, format: DateFormat): string => {
+  const date = new Date(value);
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
 
   switch (format) {
     case "date":

@@ -10,10 +10,10 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
-import { Article } from "@/types/article";
+import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
 @Component
 export default class Ankeiler extends Vue {
-  @Prop() article!: Article;
+  @Prop() article!: WordpressPostSummary;
 }
 </script>

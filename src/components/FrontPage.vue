@@ -8,14 +8,14 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
 import Ankeiler from "@/components/Ankeiler.vue";
-import { DummyContent } from "@/api/api";
+import { WordpressPostArticle } from "@/types/wordpress-post-article";
 
 @Component({
   components: { Ankeiler }
 })
 export default class FrontPage extends Vue {
-  articles = DummyContent;
+  @Prop() articles!: WordpressPostArticle[];
 }
 </script>

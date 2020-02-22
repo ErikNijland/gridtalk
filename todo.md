@@ -1,0 +1,5 @@
+- Routing
+- Fetch API for detail page
+- CSS layout
+- Date filter formatting
+- Article page

@@ -1,13 +1,13 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import { Date } from "./filters/Date";
+import { DateFilter } from "./filters/Date";
 
 Vue.config.productionTip = false;
 
 Vue.mixin({
   filters: {
-    Date
+    Date: DateFilter
   }
 });
 
