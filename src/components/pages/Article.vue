@@ -14,7 +14,7 @@
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Watch } from "vue-property-decorator";
 import { getArticle } from "@/api/api";
 import { WordpressPostArticle } from "@/types/wordpress-post-article";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
@@ -24,25 +24,34 @@ import Notification from "@/components/Notification.vue";
   components: {
     LoadingIndicator,
     Notification
-  }
+  },
+  data: () => ({
+    article: null,
+    hasError: false,
+    isLoading: true
+  })
 })
 export default class Article extends Vue {
-  article!: WordpressPostArticle;
-  hasError = false;
-  isLoading = true;
-
   created() {
     const { slug } = this.$route.params;
 
+    this.loadArticle(slug);
+  }
+
+  @Watch("$route.params.slug")
+  loadArticle(slug: string) {
+    this.$data.isLoading = true;
+
     getArticle(slug)
       .then(article => {
-        this.article = article;
+        console.log(article);
+        this.$data.article = article;
       })
       .catch(() => {
-        this.hasError = true;
+        this.$data.hasError = true;
       })
       .finally(() => {
-        this.isLoading = false;
+        this.$data.isLoading = false;
       });
   }
 }

@@ -1,8 +1,5 @@
-- Routing
-- Fetch API for detail page
 - CSS layout
 - Date filter formatting
-- Article page
 - Archive page
-- Pagination archive
-- Make API content wrapper component with loading, success and error state
+- Pagination for archive
+- Add HTML sanitizer

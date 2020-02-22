@@ -8,5 +8,6 @@ export const router = new VueRouter({
     { path: "/", component: FrontPage },
     { path: "/archief", component: Archive },
     { path: "/:slug", component: Article }
-  ]
+  ],
+  scrollBehavior: () => ({ x: 0, y: 0 })
 });
