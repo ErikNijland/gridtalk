@@ -1,16 +1,20 @@
 <template>
   <div>
     <h1>Al het nieuws</h1>
-    <h2>Za 22 februari</h2>
     <ul>
-      <li>14:19 <a href="">Mercedes speelt vals</a></li>
-      <li>10:11 <a href="">Ferarri doet ook in 2020 niet mee</a></li>
+      <li v-for="article in articles" v-bind:key="article.id">
+        {{ article.date | Date("time") }}
+        <a href="" v-html="article.title.rendered"></a>
+      </li>
     </ul>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Prop, Vue } from "vue-property-decorator";
+import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
 @Component
-export default class Sidebar extends Vue {}
+export default class Sidebar extends Vue {
+  @Prop() articles!: WordpressPostSummary[];
+}
 </script>

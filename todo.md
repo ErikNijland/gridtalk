@@ -3,3 +3,5 @@
 - CSS layout
 - Date filter formatting
 - Article page
+- Archive page
+- Pagination archive

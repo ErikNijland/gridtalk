@@ -1,7 +1,7 @@
 <template>
   <div>
     <Ankeiler
-      v-for="article in articles"
+      v-for="article in articles.slice(0, 2)"
       v-bind:key="article.id"
       :article="article"
     ></Ankeiler>
