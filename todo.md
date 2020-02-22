@@ -1,5 +1,15 @@
-- CSS layout
+- Reset all CSS
+- CSS for header
+- CSS for footer
+- CSS for article
+- CSS for sidebar/archive
+- CSS for front page
+- Handle modified dates on Article page
+- Add author?
 - Date filter formatting
 - Archive page
 - Pagination for archive
-- Add HTML sanitizer
+- Set document.title
+- make layout responsive
+- style notifications and add proper text
+- loading indicator styling

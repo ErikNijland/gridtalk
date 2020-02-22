@@ -8,6 +8,7 @@
 
     <template v-else>
       <h1 v-html="article.title.rendered"></h1>
+      <div>{{ article.date | Date("full") }}</div>
       <img :src="article.x_featured_media_large" alt="" />
       <div v-html="article.content.rendered"></div>
     </template>
@@ -16,7 +17,6 @@
 <script lang="ts">
 import { Component, Vue, Watch } from "vue-property-decorator";
 import { getArticle } from "@/api/api";
-import { WordpressPostArticle } from "@/types/wordpress-post-article";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import Notification from "@/components/Notification.vue";
 
@@ -44,7 +44,6 @@ export default class Article extends Vue {
 
     getArticle(slug)
       .then(article => {
-        console.log(article);
         this.$data.article = article;
       })
       .catch(() => {

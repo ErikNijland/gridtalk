@@ -1,0 +1,15 @@
+.list {
+  margin-top: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.list__item {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.list__item:not(:last-child) {
+  margin-bottom: var(--gap-small);
+}

@@ -1,8 +1,12 @@
 <template>
   <div>
     <h1>Al het nieuws</h1>
-    <ul>
-      <li v-for="article in articles" v-bind:key="article.id">
+    <ul class="list">
+      <li
+        class="list__item"
+        v-for="article in articles"
+        v-bind:key="article.id"
+      >
         {{ article.date | Date("time") }}
 
         <router-link
@@ -29,3 +33,6 @@ export default class Sidebar extends Vue {
   }
 }
 </script>
+<style type="text/css">
+@import "../styles/list.css";
+</style>
