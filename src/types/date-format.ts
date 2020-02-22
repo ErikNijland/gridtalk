@@ -1,4 +1,1 @@
-export type DateFormat =
-  'date' |
-  'full' |
-  'time';
+export type DateFormat = "date" | "full" | "time";

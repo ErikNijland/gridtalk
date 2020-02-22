@@ -8,7 +8,7 @@
 
     <template v-else>
       <h1 v-html="article.title.rendered"></h1>
-      <img :src="article.x_featured_media_large" alt="">
+      <img :src="article.x_featured_media_large" alt="" />
       <div v-html="article.content.rendered"></div>
     </template>
   </div>

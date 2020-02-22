@@ -1,8 +1,6 @@
 <template>
   <footer>
-    Facebook
-    Twitter
-    Whatever
+    Facebook Twitter Whatever
   </footer>
 </template>
 <script lang="ts">
