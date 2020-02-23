@@ -1,20 +1,7 @@
 <template>
   <div>
     <h1>Al het nieuws</h1>
-    <ul class="list">
-      <li
-        class="list__item"
-        v-for="article in articles"
-        v-bind:key="article.id"
-      >
-        {{ article.date | Date("time") }}
-
-        <router-link
-          :to="'/' + article.slug"
-          v-html="article.title.rendered"
-        ></router-link>
-      </li>
-    </ul>
+    <Headlines :articles="articles"></Headlines>
   </div>
 </template>
 <script lang="ts">
@@ -22,7 +9,9 @@ import { Component, Vue } from "vue-property-decorator";
 import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
 import { getArticles } from "@/api/api";
+import Headlines from "@/components/Headlines.vue";
 @Component({
+  components: { Headlines },
   data: () => ({
     articles: null
   })

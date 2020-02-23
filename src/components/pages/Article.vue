@@ -19,6 +19,7 @@ import { Component, Vue, Watch } from "vue-property-decorator";
 import { getArticle } from "@/api/api";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import Notification from "@/components/Notification.vue";
+import { WordpressPostArticle } from "@/types/wordpress-post-article";
 
 @Component({
   components: {
@@ -44,6 +45,10 @@ export default class Article extends Vue {
 
     getArticle(slug)
       .then(article => {
+        if (!article) {
+          throw Error;
+        }
+
         this.$data.article = article;
       })
       .catch(() => {
