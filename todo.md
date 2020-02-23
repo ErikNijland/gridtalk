@@ -7,9 +7,8 @@
 - Handle modified dates on Article page
 - Add author?
 - Date filter formatting
-- Archive page
-- Pagination for archive
 - Set document.title
 - make layout responsive
 - style notifications and add proper text
 - loading indicator styling
+- get rid of the retarded vue-property-decorator
