@@ -1,18 +1,25 @@
 import { apiConfig } from "@/api/api-config";
-import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 import { ArticlesCache } from "@/types/articles-cache";
 import { WordpressPostArticle } from "@/types/wordpress-post-article";
+import { WordpressPostList } from "@/types/wordpress-post-list";
 
 const articlesCache: ArticlesCache = {};
 
-export function getArticles(page = 1): Promise<WordpressPostSummary[]> {
+export function getArticles(page = 1): Promise<WordpressPostList> {
   if (!articlesCache[String(page)]) {
     const { baseUrl } = apiConfig;
     const fields = apiConfig.fields.summary.join();
 
     articlesCache[page] = fetch(
       `${baseUrl}posts?_fields=${fields}&page=${page}&per_page=50`
-    ).then(response => response.json());
+    ).then(response => {
+      return response.json().then(data => ({
+        meta: {
+          numberOfPages: Number(response.headers.get("x-wp-totalpages"))
+        },
+        data
+      }));
+    });
   }
 
   return articlesCache[page];

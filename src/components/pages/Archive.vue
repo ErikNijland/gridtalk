@@ -42,7 +42,7 @@ export default class Archive extends Vue {
 
     getArticles(page)
       .then(articles => {
-        this.$data.articles = articles;
+        this.$data.articles = articles.data;
       })
       .catch(() => {
         this.$data.hasError = true;

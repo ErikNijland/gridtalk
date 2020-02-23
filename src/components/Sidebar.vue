@@ -2,11 +2,11 @@
   <div>
     <h1>Al het nieuws</h1>
     <Headlines :articles="articles"></Headlines>
+    <router-link to="archief/2">Meer nieuwsartikelen</router-link>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
 import { getArticles } from "@/api/api";
 import Headlines from "@/components/Headlines.vue";
@@ -19,7 +19,7 @@ import Headlines from "@/components/Headlines.vue";
 export default class Sidebar extends Vue {
   created() {
     getArticles().then(articles => {
-      this.$data.articles = articles;
+      this.$data.articles = articles.data;
     });
   }
 }

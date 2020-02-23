@@ -18,7 +18,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Ankeiler from "@/components/Ankeiler.vue";
-import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 import { getArticles } from "@/api/api";
 import LoadingIndicator from "@/components/LoadingIndicator.vue";
 import Notification from "@/components/Notification.vue";
@@ -39,7 +38,7 @@ export default class FrontPage extends Vue {
   created() {
     getArticles()
       .then(articles => {
-        this.$data.articles = articles;
+        this.$data.articles = articles.data;
       })
       .catch(() => {
         this.$data.hasError = true;

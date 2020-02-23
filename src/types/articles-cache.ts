@@ -1,5 +1,5 @@
-import { WordpressPostSummary } from "@/types/wordpress-post-summary";
+import { WordpressPostList } from "@/types/wordpress-post-list";
 
 export interface ArticlesCache {
-  [key: string]: Promise<WordpressPostSummary[]>;
+  [page: string]: Promise<WordpressPostList>;
 }
