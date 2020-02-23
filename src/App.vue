@@ -6,7 +6,7 @@
       <main class="site-content__main">
         <router-view></router-view>
       </main>
-      <div class="site-content__sidebar">
+      <div v-if="showSidebar" class="site-content__sidebar">
         <Sidebar></Sidebar>
       </div>
     </div>
@@ -27,6 +27,13 @@ import "./styles/reset.css";
     Sidebar,
     SiteHeader,
     SiteFooter
+  },
+  computed: {
+    showSidebar: {
+      get() {
+        return this.$route.name !== "archive";
+      }
+    }
   }
 })
 export default class App extends Vue {}

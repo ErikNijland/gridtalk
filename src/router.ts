@@ -6,7 +6,7 @@ import Article from "@/components/pages/Article.vue";
 export const router = new VueRouter({
   routes: [
     { path: "/", component: FrontPage },
-    { path: "/archief/:page?", component: Archive },
+    { name: "archive", path: "/archief/:page?", component: Archive },
     { path: "/:slug", component: Article }
   ],
   scrollBehavior: () => ({ x: 0, y: 0 })
