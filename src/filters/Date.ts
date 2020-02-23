@@ -35,7 +35,6 @@ export const DateFilter = (value: string, format: DateFormat): string => {
 
   const hours = date.getHours();
   const minutes = date.getMinutes();
-
   const hoursWithLeadingZero = String(hours).padStart(2, "0");
   const minutesWithLeadingZero = String(minutes).padStart(2, "0");
 

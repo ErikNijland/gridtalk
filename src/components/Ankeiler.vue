@@ -6,7 +6,7 @@
         v-html="article.title.rendered"
       ></router-link>
     </h2>
-    <p>{{ article.date | Date("time") }}</p>
+    <p>{{ article.date | Date("full") }}</p>
     <img :src="article.x_featured_media_medium" alt="" />
     <p v-html="article.excerpt.rendered"></p>
   </div>

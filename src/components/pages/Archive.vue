@@ -32,7 +32,7 @@ import Pager from "@/components/Pager.vue";
     currentPage: null,
     hasError: false,
     isLoading: true,
-    numberOfPages: null,
+    numberOfPages: null
   })
 })
 export default class Archive extends Vue {
