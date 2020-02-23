@@ -22,13 +22,15 @@ import { Component, Vue } from "vue-property-decorator";
 import { WordpressPostSummary } from "@/types/wordpress-post-summary";
 
 import { getArticles } from "@/api/api";
-@Component
+@Component({
+  data: () => ({
+    articles: null
+  })
+})
 export default class Sidebar extends Vue {
-  articles: WordpressPostSummary[] = [];
-
   created() {
     getArticles().then(articles => {
-      this.articles = articles;
+      this.$data.articles = articles;
     });
   }
 }

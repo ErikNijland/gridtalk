@@ -28,23 +28,24 @@ import Notification from "@/components/Notification.vue";
     Ankeiler,
     LoadingIndicator,
     Notification
-  }
+  },
+  data: () => ({
+    articles: null,
+    hasError: false,
+    isLoading: true
+  })
 })
 export default class FrontPage extends Vue {
-  articles!: WordpressPostSummary[];
-  hasError = false;
-  isLoading = true;
-
   created() {
     getArticles()
       .then(articles => {
-        this.articles = articles;
+        this.$data.articles = articles;
       })
       .catch(() => {
-        this.hasError = true;
+        this.$data.hasError = true;
       })
       .finally(() => {
-        this.isLoading = false;
+        this.$data.isLoading = false;
       });
   }
 }
